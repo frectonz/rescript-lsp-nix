@@ -14,8 +14,9 @@ or
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     utils.url = "github:numtide/flake-utils";
     rescript-lsp = {
-        url = "github:numtide/flake-utils";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:frectonz/rescript-lsp-nix";
+      inputs.utils.follows = "utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -29,7 +30,7 @@ or
       (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        rescript-language-server = rescript-lsp.packages.default;
+        rescript-language-server = rescript-lsp.packages.${system}.default;
       in
       with pkgs; {
         devShells.default = mkShell {
