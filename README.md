@@ -16,7 +16,6 @@ or
     rescript-lsp = {
       url = "github:frectonz/rescript-lsp-nix";
       inputs.utils.follows = "utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
